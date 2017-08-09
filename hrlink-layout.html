@@ -1,0 +1,74 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="hrlink-layout">
+  <template>
+    <style>
+      :host {
+        display: flex;
+      }
+      
+      .edit,
+      .search {
+      	flex: 1;
+      }
+      
+      :host([layout="edit"]) .search {
+      	display: none;
+      }
+      
+      :host([layout="search"]) {
+      	flex-direction: column;
+      }
+      
+      :host([layout="search"]) .search {
+      	flex: none;
+      }
+      
+      :host([layout="search-edit"]) .edit {
+      	flex: 3;
+      }
+      
+      :host([layout="search-edit"]) .search {
+      	flex: 2;
+      }
+      
+      ::slotted([slot="edit"]),
+      ::slotted([slot="search"]) {
+      	width: 100%;
+      	height: 100%;
+      	box-sizing: border-box;
+      }
+    </style>
+    <div class="search">
+    	<slot name="search"></slot>
+    </div>
+    <div class="edit">
+    	<slot name="edit"></slot>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `hrlink-layout`
+     * HRLink layout templates
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class HrlinkLayout extends Polymer.Element {
+      static get is() { return 'hrlink-layout'; }
+      static get properties() {
+        return {
+          layout: {
+            type: String,
+            value: 'edit',
+            reflectToAttribute: true
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HrlinkLayout.is, HrlinkLayout);
+  </script>
+</dom-module>

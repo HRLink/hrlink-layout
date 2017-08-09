@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>hrlink-layout demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+	<link rel="import" href="../../paper-styles/default-theme.html">
+    <link rel="import" href="../hrlink-layout.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      	hrlink-layout {
+      		height: 10em;
+      		margin: 2em;
+      	}
+      	
+      	hrlink-layout > div {
+      		display: flex;
+      		align-items: center;
+      		justify-content: center;
+      		padding: 1em;
+      		outline-offset: -4px;
+      		outline: 1px dashed #ddd;
+      	}
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic hrlink-layout demo</h3>
+      <demo-snippet>
+        <template>
+        	<hrlink-layout layout-"edit">
+        		<div slot="search">Search</div>
+        		<div slot="edit">Edit</div>
+        	</hrlink-layout>
+        	<hrlink-layout layout="search">
+        		<div slot="search">Search</div>
+        		<div slot="edit">Details</div>
+        	</hrlink-layout>
+        	<hrlink-layout layout="search-edit">
+        		<div slot="search">Search</div>
+        		<div slot="edit">Edit</div>
+        	</hrlink-layout>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
